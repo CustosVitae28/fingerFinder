@@ -14,9 +14,10 @@ def get_parser():
         help="Path of image")
 
     parser.add_argument('-url',
-                        action='store_true',
-                        required=True,
-                        help="Default = True, if your argument is local path set False")
+                        action='store_true')
+
+    parser.add_argument('-path',
+                        action='store_true')
 
     return parser
 
@@ -128,15 +129,17 @@ if __name__ == "__main__":
 
     img_path = p.img_path
     url_flag = p.url
+    path_flag = p.path
 
     detected_points, distance = finger_finder(img_path)
 
     if url_flag:
         img = url_to_img(img_path)
-    else:
+    elif path_flag:
         img = cv2.imread(img_path)
     cv2.circle(img, detected_points[0], 5, [0, 0, 255], -1)
     cv2.circle(img, detected_points[1], 5, [0, 0, 255], -1)
     cv2.line(img, detected_points[0], detected_points[1], [0, 255, 0], 2)
-    cv2.putText(img, f'Distance = {distance}', (10, 50), cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0, 255, 0), 2, cv2.LINE_AA)
+    cv2.putText(img, f'Distance = {distance}', (10, 25), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 1, cv2.LINE_AA)
+    cv2.putText(img, f'Coordinates = {detected_points}', (10, 50), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 1, cv2.LINE_AA)
     cv2.imwrite('result.png', img)

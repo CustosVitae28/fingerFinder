@@ -11,10 +11,8 @@ usage: finger_finder.py [-h] --img-path IMG_PATH -url
 optional arguments:
   -h, --help           show this help message and exit
   --img-path IMG_PATH  Path of image
-  -url                 Default = True, if your argument is local path set
-                       False
-
-
+  -url
+  -path
 ```
 **Note**: The script works for single image, so the argument must be the full path of the image.
 
@@ -24,10 +22,10 @@ optional arguments:
 
 ### If your path is local
 ```
-python3 ./finger_finder.py -url False --img-path ./tests/test.png
+python3 ./finger_finder.py -path --img-path ./tests/test.png
 ```
 
-### If your path is local
+### If your path is url
 ```
 python3 ./finger_finder.py -url --img-path 'https://stanfordflipside.com/images/45Hand.jpg'
 ```
