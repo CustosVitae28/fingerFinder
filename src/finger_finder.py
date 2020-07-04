@@ -57,9 +57,7 @@ def finger_finder(img_path):
     else:
         frame = cv2.imread(img_path)
 
-    # frame = cv2.imread(img_path)
-
-    lower = np.array([0, 39, 73], dtype="uint8")
+    lower = np.array([0, 40, 73], dtype="uint8")
     upper = np.array([20, 255, 255], dtype="uint8")
 
     converted = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
