@@ -18,16 +18,16 @@ optional arguments:
 
     python3 ./finger_finder.py  <input_image_path>
     
-*Example*
+## *Examples*
 
 ### If your path is local
 ```
-python3 ./finger_finder.py -path --img-path ./tests/test.png
+python3 ./src/finger_finder.py -path --img-path ./tests/test.png
 ```
 
 ### If your path is url
 ```
-python3 ./finger_finder.py -url --img-path 'https://stanfordflipside.com/images/45Hand.jpg'
+python3 ./src/finger_finder.py -url --img-path 'https://stanfordflipside.com/images/45Hand.jpg'
 ```
 
 **Please Note**: Script works only for those images in which there is one hand and it is straight towards the camera. The script does not support rotations.
